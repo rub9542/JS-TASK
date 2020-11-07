@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+</head>
+<body>
+    <div class="input_div">
+        <input class="input" type="text" placeholder="Add items to the list">
+        <button class="addbutton">Add</button>
+    </div>
+    <div class="container">
+        <div class="item">
+            <input type='text' class="item_input" value="List"  disabled>
+            <button class="editbutton">Change</button>
+            <button class="removebutton">Delete</button>
+
+        </div>
+    </div>
+
+    <script >
+
+const addbutton=document.querySelector('.addbutton');
+var input = document.querySelector('.input');
+const container= document.querySelector('.container');
+
+class item{
+    constructor(itemName){
+        this.createDiv(itemName);
+    }
+    createDiv(itemName){
+        let input =document.createElement('input');
+        input.value=itemName;
+        input.disabled=true;
+        input.classList.add('item_input');
+        input.type="text";
+
+        let itemBox = document.createElement('div');
+        itemBox.classList.add('item');
+
+        let editbutton = document.createElement('button');
+        editbutton.classList.add('editbutton');
+
+        let removebutton = document.createElement('button');
+        removebutton.classList.add('removebutton');
+
+        container.appendChild(itemBox);
+
+        itemBox.appendChild(input);
+        itemBox.appendChild(editbutton);
+        itemBox.appendChild(removebutton);
+    }
+}
+
+// new item("Sport");
+
+
+function check(){
+    if(input.value != ""){
+        new item(input.value);
+        input.value = "";
+    }
+}
+addbutton.addEventListener('click', check);
+    </script>
+</body>
+</html>
