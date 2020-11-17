@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="task.css">
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
 </head>
 <body>
@@ -13,19 +14,51 @@
         <button class="addbutton">Add</button>
     </div>
     <div class="container">
-        <div class="item">
-            <input type='text' class="item_input" value="List"  disabled>
+        <table class="ttable">
+            <thead id="heading">
+                <tr><th id="th">Serial Number</th>
+                <th id="th">Name</th>
+                <th id="th">Status</th>
+                <th id="th">Action</th>
+            </tr></thead>
+
+            <tbody class="tbody">
+                <tr class="trow">
+                    <td id="th" class="trow1"></td>
+                    <td id="th" class="trow2"></td>
+                    <td id="th" class="trow3"></td>
+                </tr>
+
+
+                <!-- <tr class="trow2"></tr>
+                <tr class="trow3"></tr>
+                <tr class="trow4"></tr> -->
+            </tbody>
+        </table>
+
+
+
+
+        <!-- <div class="item">
+            <input type='text' class="item_input" value="List"  disabled >
             <button class="editbutton">Change</button>
             <button class="removebutton">Delete</button>
 
         </div>
+        <div class="item">
+            <input type='text' class="item_input" value="List"  disabled >
+            <button class="editbutton">Change</button>
+            <button class="removebutton">Delete</button>
+
+        </div> -->
     </div>
 
     <script >
 
 const addbutton=document.querySelector('.addbutton');
 var input = document.querySelector('.input');
-const container= document.querySelector('.container');
+// const container= document.querySelector('.container');
+const ttable= document.querySelector('.tbody');
 
 class item{
     constructor(itemName){
@@ -38,21 +71,55 @@ class item{
         input.classList.add('item_input');
         input.type="text";
 
-        let itemBox = document.createElement('div');
-        itemBox.classList.add('item');
+        let itemBox = document.createElement('tr');
+        itemBox.classList.add('trow');
 
-        let editbutton = document.createElement('button');
-        editbutton.classList.add('editbutton');
+        let td1 = document.createElement('td');
+        td1.innerHTML = 1;
+        td1.classList.add('trow1');
 
-        let removebutton = document.createElement('button');
-        removebutton.classList.add('removebutton');
+        let td2 = document.createElement('td');
+        // td2.innerHTML = input;
+        td2.classList.add('trow2');
+        td2.append(input)
 
-        container.appendChild(itemBox);
+        let td3 = document.createElement('td');
+        // td2.innerHTML = input;
+        td3.classList.add('trow3');
 
-        itemBox.appendChild(input);
-        itemBox.appendChild(editbutton);
-        itemBox.appendChild(removebutton);
+
+        let checkbox = document.createElement('input');
+        // removebutton.innerHTML = "Remove";
+        checkbox.classList.add('checkboxx');
+        checkbox.type="checkbox";
+
+        td3.append(checkbox)
+        // let status = document.createElement('p');
+        // status.innerHTML = "Incomplete";
+        // status.classList.add('status');
+
+        // container.appendChild(itemBox);
+
+        ttable.appendChild(itemBox);
+
+        itemBox.appendChild(td1);
+        itemBox.appendChild(td2);
+        itemBox.appendChild(td3);
+        // itemBox.appendChild(input);
+        // itemBox.appendChild(serial);
+        // itemBox.appendChild(removebutton);
+
+        // editbutton.addEventListener('click', ()=> this.edit(input));
+
+        // removebutton.addEventListener('click', ()=>this.remove(itemBox));
     }
+    // edit(input){
+    //     input.disabled=! input.disabled;
+    // }
+
+    // remove(item){
+    //     container.removeChild(item);
+    // }
 }
 
 // new item("Sport");
@@ -65,6 +132,11 @@ function check(){
     }
 }
 addbutton.addEventListener('click', check);
+window.addEventListener('keydown',(e)=>{
+    if(e.which==13){
+        check();
+    }
+})
     </script>
 </body>
 </html>
