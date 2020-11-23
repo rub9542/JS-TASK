@@ -1,0 +1,47 @@
+.listbg {
+  display: flex;
+  height: 1000px;
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
+  background-color: purple;
+  margin-top: -195px;
+}
+.inputarea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  height: 50px;
+  margin-left: 727px;
+  width: 200px;
+}
+.addbtn {
+  display: flex;
+  width: 110px;
+  font-size: 33px;
+  height: 67px;
+  margin-left: 775px;
+}
+.reset {
+  display: flex;
+  width: 110px;
+  font-size: 33px;
+  height: 67px;
+  margin-left: 775px;
+}
+.table {
+  display: flex;
+  border: 1px solid red;
+  flex-direction: column;
+}
+.heading {
+  display: flex;
+  border: 1px solid green;
+}
+.th {
+  /* display: flex; */
+  padding-right: 40px;
+  width: 350px;
+  border: 1px solid black;
+}
