@@ -1,34 +1,53 @@
 .listbg {
+  /* display: flex; */
+  /* height: 100%; */
+  /* width: 100%; */
+  /* justify-content: center; */
+  /* flex-direction: column; */
+  background-color:  #7FDBFF;
+  /* margin-top: -195px; */
+}
+.top{
   display: flex;
-  height: 1000px;
+  flex-direction: row;
+  position: sticky;
+  top:0;
+  background-color: cornflowerblue;
   width: 100%;
-  justify-content: center;
-  flex-direction: column;
-  background-color: purple;
-  margin-top: -195px;
 }
 .inputarea {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-  height: 50px;
-  margin-left: 727px;
-  width: 200px;
+  flex:2;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* border:1px solid orange ; */
+  font-size: 42px;
+  border-radius: 10px;
+  height: 79px;
+  /* padding: 0 20px; */
+  margin: 20px 48px 43px 42px;
+  /* width: 200px; */
 }
-.addbtn {
+.addbtn{
   display: flex;
-  width: 110px;
-  font-size: 33px;
-  height: 67px;
-  margin-left: 775px;
+  width: 75px;
+  height: 75px;
+  margin-top:17px;
+  border-radius: 56px;
+  justify-content: center;
+  font-size: 60px;
 }
+
 .reset {
   display: flex;
-  width: 110px;
-  font-size: 33px;
+  flex: 1;
+  /* width: 110px; */
+  font-size: 51px;
   height: 67px;
-  margin-left: 775px;
+  justify-content: center;
+  border-radius: 32px;
+  margin-top: 21px;
+  margin-left: 29px;
 }
 .table {
   display: flex;
@@ -39,9 +58,57 @@
   display: flex;
   border: 1px solid green;
 }
+.row{
+  display: flex;
+  background-color:white;
+  border-radius: 84px;
+  margin-bottom: 33px;
+  height: 150px;
+  width: 881px;
+}
 .th {
-  /* display: flex; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding-right: 40px; */
+  width: 670px;
+  height:150px;
+  /* border: 1px solid black; */
+}
+.th1 {
+  display: flex;
+  /* padding-right: 40px; */
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height:150px;
+  /* border: 1px solid black; */
+}
+.th2{
+  display: flex;
   padding-right: 40px;
-  width: 350px;
-  border: 1px solid black;
+  justify-content: center;
+  align-items: center;
+  width: 210px;
+  height:150px;
+  /* border: 1px solid black; */
+}
+.checkbox{
+  display: flex;
+  border:3px solid red;
+  border-radius:50%;
+  height:30px;
+  width:30px;
+}
+.items{
+  display: flex;
+  font-size:40px
+}
+.listbtn{
+  display: flex;
+  width: 103px;
+  height: 71px;
+  justify-content: center;
+  font-size: 32px;
+  align-items: center;
 }

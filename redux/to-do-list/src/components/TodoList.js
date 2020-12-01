@@ -1,68 +1,41 @@
 import React, { Component } from "react";
 import "./list.css";
 import { connect } from "react-redux";
-import { createToDo } from "../actions";
+// import {  } from '../actions'
+import { createToDo, changestatus } from "../actions";
 
 class TodoList extends Component {
   constructor(props) {
     super(props);
     this.state = {
       text: "",
-      count: "not checked",
+      isEditing:true,
+      // count: "not checked",
     };
     // this.renderList = this.renderList.bind(this);
-    this.addItem = this.addItem.bind(this);
-    this.resetItem = this.resetItem.bind(this);
-    this.deleteItem = this.deleteItem.bind(this);
+    // this.addItem = this.addItem.bind(this);
+    // this.resetItem = this.resetItem.bind(this);
+    // this.deleteItem = this.deleteItem.bind(this);
     // this.sortItems = this.sortItems.bind(this);
   }
+  editItem =()=>{
+    this.setState({
+      isEditing:!this.state.isEditing
+    })
+  }
 
-  deleteItem(index) {
+  deleteItem=(index) =>{
     const newList = this.props.items.filter(
       (x) => this.props.items.indexOf(x) !== index
     );
     this.props.createToDo(newList);
   }
-  checked = () => {
-    // this.props
-    this.setState({
-      count: "complete",
-    });
-  };
+ 
 
-  // renderList() {
-  //   return <table className="table">
-  //   <thead className="heading">
-  //   <tr>
-  //   <th className="th">Serial number</th>
-  //   <th className="th">Name</th>
-  //   <th className="th">Status</th>
-  //   <th className="th">Actions</th></tr>
-  //   </thead>
-  //   <tbody>
-  //   {this.props.items.map((x,index)=>(
-  //     <tr key={index}>
-  //   <td className="th">{index}
-  //   </td>
-  //   <td className="th">{x}</td>
 
-  //   <td className="th"><input type="checkbox"  onChange={()=>this.checked(index)}/></td>
-  //   <td>{this.state.count}</td>
-
-  //   </tr>
-
-  //   ))}
-
-  //   </tbody>
-  //   </table>
-
-  //   // return this.props.items.map((item, index) => {
-  //   //   return <div key={index}><h1>{item.title} </h1><button onClick={(event) => this.deleteItem(index)}>delete</button> </div>;
-  //   // });
-  // }
-
-  addItem() {
-    const newList = [...this.props.items, { title: this.state.text }];
+  addItem=() =>{
+    let newList = this.props.items;
+    newList.push({ title: this.state.text, status:false })
     this.props.createToDo(newList);
     this.setState({
       text: "",
@@ -74,64 +47,91 @@ class TodoList extends Component {
   //   this.props.createToDo(newList);
   // }
 
-  resetItem() {
+  // changeItem=(x)=>{
+  //   const newList = this.props.items.filter(
+  //     (x) => this.props.items.indexOf(x) === (-1)
+  //   );
+  //   this.props.createToDo(newList);
+  // }
+
+  resetItem=()=> {
     const newList = [];
     this.props.createToDo(newList);
   }
+  
+  toggletask=(index)=>{
+    console.log(this.props.items);
+
+    let newList = this.props.items;
+    newList[index].status = !newList[index].status
+    this.props.createToDo(newList)
+    console.log(this.props.items); 
+  }
 
   render() {
+    // const{items} =this.props;
+   
     return (
       <div className="listbg">
-        <input
+       <div className="top"> <input
           className="inputarea"
           value={this.state.text}
           onChange={(event) => this.setState({ text: event.target.value })}
-        ></input>
-        <button className="addbtn" onClick={this.addItem}>
-          Add
-        </button>
+        />
+        {this.state.text !=='' ?  <button className="addbtn"  onClick={this.addItem}>      +
+      </button> :null}
+      {/* <button className="addbtn"  onClick={this.addItem}>      +
+      </button>  */}
+     
+    
+       
         <button className="reset" onClick={this.resetItem}>
           Reset
-        </button>
-        {this.props.items !== [] ? (
-          <table className="table">
-            <thead className="heading">
-              <tr>
-                <th className="th">Serial number</th>
-                <th className="th">Name</th>
-                <th className="th">Status</th>
-                <th className="th">Actions</th>
-              </tr>
-            </thead>
+        </button></div>
+        <div>{this.props.items.length}</div>
+        {this.props.items !== [] ? 
+        
+          <table className="table" >
+            
             <tbody>
               {this.props.items.map((x, index) => (
-                <tr key={index}>
-                  <td className="th">{index}</td>
-                  <td className="th">{x.title}</td>
-
-                  <td className="th">
-                    <input
-                      type="checkbox"
-                      onChange={() => this.checked(index)}
+                <tr key={index} className='row'>
+                  <td className="th1">
+                    <input type='radio'className="checkbox"
+                    onChange={()=>this.toggletask(index)}
                     />
+                    </td>
+                  <td className="th"><h1 className="items" style={{
+                    opacity : x.status ? 0.5 : 1 
+                  }}>{x.title}</h1></td>
+
+               
+                  <td className="th2">
+                  <button className='listbtn' onClick={()=>this.editItem(index)}>Edit</button>
+                  <button  className='listbtn' onClick={()=>this.deleteItem(index)}>Delete</button>
                   </td>
-                  <td>{this.state.count}</td>
+                  
                 </tr>
               ))}
             </tbody>
           </table>
-        ) : null}{" "}
+         : null}{" "}
       </div>
     );
   }
 }
 
 const mapStateToProps = (state) => {
+  const {items}= state.todo
   return {
-    items: state.todo.items,
+    items
   };
 };
+const mapDispatchToProps= (dispatch) =>{
+ return{
+  changestatus: (payload) => dispatch(changestatus(payload)),
+  createToDo: (payload) => dispatch(createToDo(payload))
+ }
+}
 
-export default connect(mapStateToProps, {
-  createToDo,
-})(TodoList);
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
