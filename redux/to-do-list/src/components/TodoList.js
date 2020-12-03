@@ -63,9 +63,10 @@ class TodoList extends Component {
     console.log(this.props.items);
 
     let newList = this.props.items;
-    newList[index].status = !newList[index].status
-    this.props.createToDo(newList)
-    console.log(this.props.items); 
+    let ss= newList.splice(index,1);
+    newList.push(ss[0]);
+    this.props.createToDo(newList);
+    console.log(newList); 
   }
 
   render() {

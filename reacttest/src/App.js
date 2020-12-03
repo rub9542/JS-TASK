@@ -1,50 +1,33 @@
+
+
+
 import React, { Component } from "react";
-// import logo from "./logo.svg";
+// import logo <newList/>from "./logo.svg";
 import "./App.css";
+import Common from "./components/common";
+// import Duplicates from "./components/duplicates";
+import Sort from "./components/sort";
 
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      items:['thee', 'fortytwo', 'levels', 'hello'],
-      search:'e',
-    };
-  }
-  filter=()=>{
-    let items=this.state.items
-    let newlist= items.filter((item)=>(
-     item.indexOf(this.state.search) !== -1
-    ));
-    this.setState({
-      items:newlist
-    })
-  }
+// import loops from "./components/loops";
+// import Strings from "./components/string";
+// import Number from "./components/number";
 
-
+export class App extends Component {
   render() {
-    
     return (
-      <div className="App">
-        {/* <ul>
-          {filterdata.map((item,index) =>{
-            return{
-              <li key={index}>{item}</li>
-            }
-            
-          })}
-
-        </ul> */}
-        <ul>
-          {this.state.items.map((item,index)=>(
-            <li key={index}>{item}</li>
-          ))}
-        </ul>
-        <button onClick={this.filter}>filter</button>
+      <div>
+        {/* <loops/> */}
+        {/* <Strings/> */}
+        {/* <Number/> */}
+        {/* <Duplicates/> */}
+        <Sort/>
+        {/* <Common/> */}
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
+
 
