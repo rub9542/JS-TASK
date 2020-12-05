@@ -4,10 +4,10 @@ import { combineReducers } from 'redux';
 const INITIAL_STATE = {
     items: [
         {title: 'ssssssssssss',
-        status:false},
-        {title: 'Learn JavaScript',status:false},
+        status:'incomplete'},
+        {title: 'Learn JavaScript',status:'incomplete'},
         {title: 'Learn Django' ,
-        status:false},
+        status:'incomplete'},
     ]
 };
 
@@ -19,13 +19,26 @@ const todoReducer = (state=INITIAL_STATE, action) => {
                 items: action.payload }
         
         case 'STATUS_CHANGED':
-
+            const temp= state.items[action.index]
+            temp.status=action.payload
+            const newitems= [...state.items]
+            newitems[action.index]=temp
             return{
                 ...state, 
-                items: action.payload
+                items: newitems
 
-            }        
-            ;
+            }
+        case "CHANGE_INDEX":
+                    
+            const newItems=state.items
+            const item=newItems.splice(action.index,1)
+            const newList=[...state.items,item[0]]
+            return{
+                ...state,
+                items:newList
+                // 8483094849
+            }
+
         default:
             return state;
     }

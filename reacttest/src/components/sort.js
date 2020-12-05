@@ -5,18 +5,23 @@ export class Sort extends Component {
         super(props)
     
         this.state = {
-             arr:[1,9,2,8,7,3,4,5,6,199,77,88,99],
+             arr:[1,9,2,8,77,7,3,4,5,6,199,88,99],
              text:0,
         }
     }
     Sort=()=>{
         const arr=this.state.arr;
+        const length=arr.length
         let b=this.state.text;
-        let c=arr.length - b;
+        if(b>length){
+            b=length - b
+        }
+        let c=length - b;
+        
         let status=false;
         while(!status){
             status=true;
-            for(var i=1; i<arr.length; i++){
+            for(var i=1; i<length; i++){
                 if(arr[i-1] > arr[i]){
                     status=false;
                     var a=arr[i-1];

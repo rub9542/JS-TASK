@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./list.css";
 import { connect } from "react-redux";
 // import {  } from '../actions'
-import { createToDo, changestatus } from "../actions";
+import { createToDo, changeStatus, changeIndex } from "../actions";
 
 class TodoList extends Component {
   constructor(props) {
@@ -35,7 +35,7 @@ class TodoList extends Component {
 
   addItem=() =>{
     let newList = this.props.items;
-    newList.push({ title: this.state.text, status:false })
+    newList.push({ title: this.state.text, status:'incomplete' })
     this.props.createToDo(newList);
     this.setState({
       text: "",
@@ -47,12 +47,7 @@ class TodoList extends Component {
   //   this.props.createToDo(newList);
   // }
 
-  // changeItem=(x)=>{
-  //   const newList = this.props.items.filter(
-  //     (x) => this.props.items.indexOf(x) === (-1)
-  //   );
-  //   this.props.createToDo(newList);
-  // }
+  
 
   resetItem=()=> {
     const newList = [];
@@ -99,17 +94,18 @@ class TodoList extends Component {
                 <tr key={index} className='row'>
                   <td className="th1">
                     <input type='radio'className="checkbox"
-                    onChange={()=>this.toggletask(index)}
+                    onChange={()=>this.props.changeIndex(index)}
                     />
                     </td>
                   <td className="th"><h1 className="items" style={{
                     opacity : x.status ? 0.5 : 1 
                   }}>{x.title}</h1></td>
+                  <td>{x.status}</td>
 
                
                   <td className="th2">
-                  <button className='listbtn' onClick={()=>this.editItem(index)}>Edit</button>
-                  <button  className='listbtn' onClick={()=>this.deleteItem(index)}>Delete</button>
+                  <button className='listbtn' onClick={(e)=>this.props.changeStatus('complete',index)}>Edit</button>
+                  <button  className='listbtn' onClick={()=>this.deleteItem}>Delete</button>
                   </td>
                   
                 </tr>
@@ -130,8 +126,10 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps= (dispatch) =>{
  return{
-  changestatus: (payload) => dispatch(changestatus(payload)),
-  createToDo: (payload) => dispatch(createToDo(payload))
+  changeStatus: (payload,index) => dispatch(changeStatus(payload,index)),
+  createToDo: (payload) => dispatch(createToDo(payload)),
+  changeIndex: (index) => dispatch(changeIndex(index)),
+
  }
 }
 

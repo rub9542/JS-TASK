@@ -8,24 +8,25 @@ export const createToDo = (items) => {
     };
 };
 
-export const changeStatus = (payload) => {
+export const changeStatus = (payload,index) => {
     //Return the action
-    // console.log(1222)
+    // console.log(';kelrfv.vc')
     return {
 
         type: 'STATUS_CHANGED',
-        payload
+        payload,
+        index
     };
 
 };
 
 
-// export const statuschange = (payload,index) => (
-//     //Return the action
-//     {
-//         type: 'STATUS_CHANGED',
-//         payload,
-//         index
-//     }
-// )
+export const changeIndex = (index) => (
+    //Return the action
+    {
+        type: 'CHANGE_INDEX',
+        
+        index
+    }
+)
 
