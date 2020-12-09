@@ -1,8 +1,19 @@
 import React, { Component } from 'react'
 import './todo.css'
-import Data from './data';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+// import { FaBeer } from 'react-icons/fa';
+// import Data from './data';
 import {connect} from 'react-redux';
 import {myTodo, statusChange, changeIndex, removeIndex, isEdit, changeTitle } from '../actions';
+import Data from './data';
+import Edit from './Edit';
+import Delete  from './Delete';
+import Status  from './Status';
+import Checkbox from './Checkbox';
+// import Save from './Save';
+import Cancel  from './Cancel';
+import Reset from './Reset';
+import Add  from './Add';
 
 
 export class Todo extends Component {
@@ -12,93 +23,91 @@ export class Todo extends Component {
         this.state = {
              text:'',
              data:'',
+             item:0,
             //  isEditing:false,
         }
     }
     addItem=()=>{
-        let newList=this.props.items;
-        newList.push({title:this.state.text,status:'incomplete',readonly:true});
+        let newList=[...this.props.items];
+        const item={title:this.state.text,status:'Incomplete',readonly:true}
+        newList.unshift(item);
         this.props.myTodo(newList);
         this.setState({
             text:'',
            
         })
     }
-   titlechange=(index)=>{
-    {this.props.changeTitle(this.state.data,index)}
-    {this.props.isEdit(index)}
+    titlechange=( index)=>{
+        {this.props.changeTitle(this.state.data,index)}
+        {this.props.isEdit(index)}
+        this.setState({
+            data:'',
+        })
+    
+       }
+   
+reset=()=>{
+   
+    const newList= [];
+    this.props.myTodo(newList)
+}
 
-   }
-    render() {
+render() {
         return (
-            <div>
+            <div className='App'>
                 <div className='top'>
-            <input
-          className="inputarea"
-          value={this.state.text}
-          onChange={(event) => this.setState({ text: event.target.value })}
-        />
-             <button className="addbtn"  onClick={this.addItem}>      +
-      </button>  </div>
-      <div>
-          <table className='table'>
-             
-              <tbody className='tbody'>
-          {this.props.items.map((item,index)=>(
-              <div key={index} style={{opacity:item.status==='complete' ? 0.5: 1}
-
-              }>
-                  {item.readonly ===false ?
-                  (<tr className='row'>
-                      <td>
-                          <input value={this.state.data} onChange={(event)=>this.setState({data:event.target.value})} placeholder={item.title}/></td>
-                  <td>{this.state.data !== '' ? <button onClick={()=>this.titlechange(index)}>save</button> : null}</td>
-                  <td><button onClick={(e)=>this.props.isEdit(index)}>Cancel</button></td>
-                  </tr>) :
-                  
-                  (<tr className='row'>
-                      <td className='item1'>
-                        <input className='checkbox'
-                  type='radio'
-                  checked={item.status=== 'complete'}
-                   onChange={(e)=> {item.status==='incomplete'? 
-                   this.props.statusChange('complete', index) :
-                   this.props.changeIndex('incomplete',index) } }/></td>
-                      {/* <td className='item2'>{item.title}</td> */}
-                      {<div><Data title={item.title}/></div>}
-                      <td className='item3'>{item.status}</td>
-                    
-                    <td className='item4'>
-                      <button className='edit' onClick={(e)=>this.props.isEdit(index)}>
-                          Edit
-                        </button>
-                        <button className='edit' onClick={(e)=>this.props.removeIndex(index)}>
-                        Delete
-                    </button>
-                    </td>
-                  
-                  </tr>
-                    
-                    )
-                  
-                  }
-                  
-          {/* <td>{item.status}</td>
-                  <td><input 
-                  type='checkbox'
-                  checked={item.status=== 'complete'}
-                   onChange={(e)=> {item.status==='incomplete'? 
-                   this.props.statusChange('complete', index) :
-                   this.props.changeIndex('incomplete',index) } }/></td> */}
-                   {/* <td><button onClick={(e)=>this.props.isEdit(index)}>Edit</button></td>
-                   <td><button onClick={(e)=>this.props.removeIndex(index)}>Delete</button></td> */}
-              </div>
-
-          ))}</tbody>
-          </table>
-      </div>
+                    <div className='divadd'>
+                       <Add  />
+                       
+                    </div>
+                    <div className='divReset'>
+                        
+                    </div>
+                </div>
+     
+                <div>
+                    {/* <div>
+                        <p>{this.state.item} of {this.props.items.length} done</p>
+                    </div> */}
+                    <table className='table'>
+                        <tbody className='tbody'>
+                            {this.props.items.map((item,index)=>
+                            (<div key={index}  style={{opacity:item.status==='Complete' ? 0.5: 1}}>
+                                {item.readonly ===false ?
+                                    (<tr className='row'>
+                                        <td>
+                                            <input value={this.state.data} className='editText' onChange={(event)=>this.setState({data:event.target.value})} placeholder={item.title}/>
+                                        </td>
+                                        <td className='editTools'>
+                                            {this.state.data !== '' ? 
+                                               <button className='edit1' onClick={()=>this.titlechange(index)}>
+                                               <FontAwesomeIcon icon='save'/>
+                                           </button>  : null} <Cancel index={index}/>
+                                        </td>
+                                        
+                                     </tr>) :
+                                     (<tr className='row'>
+                                        <td className='item1'>
+                                          <Checkbox status={item.status} index={index}/>
+                                        </td>
+                                        <td className='item2'>
+                                            <Data title={item.title}/>
+                                            <Status status={item.status}/>
+                                        </td>
+                                        <td>
+                                            <div className='buttons'>
+                                                <Edit index={index}/>
+                                                <Delete index={index}/>
+                                            </div>
+                                        </td>
+                                    </tr>)
+                                }
+                            </div> ))}
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        )
+        )   
     }
 }
 const mapStateToProps= state =>{

@@ -1,9 +1,10 @@
 import React from 'react'
+import './todo.css'
 
 function Data(props) {
-    const {title}=props
+    // const {title}=props
     return (
-        <div>
+        <div className='title'>
             {props.title}
         </div>
     )

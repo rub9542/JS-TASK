@@ -1,48 +1,83 @@
+.App{
+    font-family: 'Montserrat', sans-serif;;
+}
 .top{
-    /* display: flex; */
-    border:1px solid red;
-    height: 90px;
-    background-color: darkslategrey;
+    display: flex;
+    /* border:1px solid red; */
+    position: sticky;
+    justify-content: center;
+    flex-direction: column;
+    background-color: white;
+    top:0;
+    /* background-color: darkslategrey; */
 
 }
+.addbtn{
+    /* display: flex; */
+    border: 1px solid red;
+    border: none;
+    background-color: transparent;
+    font-size: 39px;
+}
 .inputarea{
-    height: 40px;
     border-radius: 22px;
-    border: 5px solid darkmagenta;
+    border:none;
+    font-weight:600 ;
+    /* border: 1px solid red; */
     font-size: 25px;
-    color:dimgray;
+    /* color:dimgray; */
     margin-top: 10px;
 }
 .table{
-    border : 1px solid darkred;
+    /* border : 1px solid darkred; */
     width:100%;
 }
-.tbody{
-    /* display: flex; */
+.title{
+    font-weight: 0,600;
+    display: flex;
+    font-size: 33px;
+    /* border:1px solid red; */
+}
+.status{
+    font-weight: 1,100;
+   
+}
+.buttons{
+    display: flex;
+    /* border: 1px solid blue; */
+    width: 186px;
+    justify-content: space-around;
 }
 .row{
-    border:1px solid mediumvioletred;
+    /* border:1px solid mediumvioletred; */
     display: flex;
+    margin-top: 38px  ;
+    
+    /* border-top: 1px solid darkcyan; */
     /* flex: 1 1; */
     /* width: 121%; */
-    border-radius: 38px;
+    justify-content: space-between;
+    align-items: center;
 
 }
-.item1{
-    display: flex;
-    /* width: 42; */
-    align-items: center;
-    border: 1px solid goldenrod;
-}
+
+
 .item2{
     display: flex;
-    padding: 19px 9px;
-    border: 1px solid goldenrod;
-    width:141px;
-    font-size: 30px;
+    /* padding: 19px 9px; */
+    flex-direction: column;
+    /* border: 1px solid goldenrod; */
+    font-size: 19px;
+}
+.sub{
+    display: flex;
+    /* border: 1px solid red; */
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around
 }
 .item3{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: flex;
     align-items: center;
 }
@@ -51,17 +86,73 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     width: 123px;
 }
 .edit{
-    background-color: #008CBA;
-    height: 30px;
-    width:75px;
-    border:dimgray;
-    border-radius: 7px;
-    margin-top:
+    background-color: hotpink;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    border:none;
+    border-radius: 21px;
+    margin-top:4px;
 }
-.checkbox{
+/* .edit:hover{
+    background-color: blanchedalmond;
+
+} */
+.editText{
+    /* display: flex; */
+    border-radius: 20px;
+    /* margin-left: -93px; */
+    /* margin-right: 13px; */
+    border: none;
+    font-size: 21px;
+}
+.edit1{
+    background-color:cadetblue;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border:dimgray; */
+    border-radius: 26px;
+    margin-top:4px;
+    border: none;
+}
+/* .edit1:hover{
+    background-color:black;
+} */
+
+.divReset{
+    display: flex;
+    justify-content: center;
+}
+.word{
+    display: flex;
+    color: floralwhite;
+}
+.add{
+    color: blueviolet;
+}
+.editTools{
+    display: flex;
+    /* border:1px solid red; */
+    justify-content: space-between;
+}
+.divadd{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.toprow{
+    border: 1px solid darkmagenta;
+    border-radius: 100px;
+    display: flex;
+    flex-direction: row;
 
 }
