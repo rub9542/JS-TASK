@@ -15,8 +15,12 @@ export class Delete extends Component {
         const {index}=this.props
         // console.log(index)
         return (
-            <button className='edit' onClick={()=>this.deleted(index)}>
-                <p className='word'> <FontAwesomeIcon icon='trash'/></p>
+            <button className='edit' onClick={()=>{if(!this.props.items[index].readonly){
+                return(null)
+            }
+            else{
+                this.deleted(index)}}}>
+                <span className='word'> <FontAwesomeIcon icon='trash'/></span>
             </button>
         )
     }

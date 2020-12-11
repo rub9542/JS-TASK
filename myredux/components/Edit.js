@@ -17,7 +17,7 @@ export class Edit extends Component {
         return (
             <div>
                 <button className='edit' onClick={()=>this.edited(index)}>
-                   <p> <FontAwesomeIcon icon='edit' /></p>
+                   <span> <FontAwesomeIcon icon='edit' /></span>
                 </button>
             </div>
         )

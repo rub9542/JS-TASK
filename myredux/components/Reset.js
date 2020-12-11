@@ -15,9 +15,9 @@ export class Cancel extends Component {
     }
     render(){
         return (
-            <div>
-                <button className='edit' onClick={this.reset}>
-                   <p className='word'> <GrPowerReset/> </p>
+            <div className='resetbtn1'>
+                <button className='resetbtn' onClick={this.reset}>
+                   <span className='word'> <GrPowerReset/> </span>
                 </button>
             </div>
         )

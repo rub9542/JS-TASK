@@ -4,9 +4,9 @@ import { combineReducers } from 'redux';
 
 const INITIAL_STATE ={
     items:[
-        {title:'Abdul', status:'Incomplete', readonly:true},
-        {title:'Rub', status:'Incomplete',readonly:true},
-        {title:'Irfan', status:'Incomplete',readonly:true}
+        {title:'AbdulAbdulAbdulAbdulAbdulAbdul', status:'Incomplete', readonly:true, select:false, edit:false },
+        {title:'Rub', status:'Incomplete',readonly:true,select:false, edit:false},
+        {title:'Irfan', status:'Incomplete',readonly:true,select:false, edit:false}
     ]
 }
 
@@ -67,7 +67,15 @@ const todoReducer = (state=INITIAL_STATE, action) =>{
             return{
                 ...state,
                 items:newList4
-            }      
+            }  
+        case 'SELECT_CHANGED':
+            const temp4=state.items[action.index]
+            temp4.select= !temp4.select
+            const newList5= [...state.items]
+            return{
+                ...state,
+                items:newList5
+                }    
             default: return state;
     }
 }

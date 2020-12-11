@@ -44,3 +44,10 @@ export const changeTitle =(payload,index) =>(
         index
     }
 )
+export const changeSelect =(index) =>(
+    console.log('select changed', index),
+    {
+        type:'SELECT_CHANGED',
+        index
+    }
+)

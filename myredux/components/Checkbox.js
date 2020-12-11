@@ -32,7 +32,12 @@ export class Checkbox extends Component {
                  type='radio'
                  defaultChecked={false}
                  checked={status=== 'Complete'}
-                 onClick={()=>this.checkboxx(status,index)}
+                 onClick={()=>
+                    {if(!this.props.items[index].readonly){
+                          return(  null)
+                        } 
+                        else {
+                            this.checkboxx(status,index)}}}
                 //  onClick={()=>this.checkboxx(status,index)
                  //     {item.status==='Incomplete'? 
                  // this.props.statusChange('Complete', index) :
