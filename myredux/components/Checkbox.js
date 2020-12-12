@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import './todo.css'
 import { statusChange, changeIndex, removeIndex } from '../actions';
 
-export class Checkbox extends Component {
+class Checkbox extends Component {
 
     
     checkboxx=(value,index)=>{
@@ -28,6 +28,7 @@ export class Checkbox extends Component {
         // console.log(index)
         return (
             <div >
+                <label class='custom-radio-btn'>
                 <input className='checkbox'
                  type='radio'
                  defaultChecked={false}
@@ -38,11 +39,9 @@ export class Checkbox extends Component {
                         } 
                         else {
                             this.checkboxx(status,index)}}}
-                //  onClick={()=>this.checkboxx(status,index)
-                 //     {item.status==='Incomplete'? 
-                 // this.props.statusChange('Complete', index) :
-                 // this.props.changeIndex('Incomplete',index) } 
                 />
+                <span className='checkmark'></span>
+                </label>
             </div>
         )
     }

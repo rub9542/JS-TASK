@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import React, { Component } from 'react'
 import './todo.css'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import { IoMdArrowRoundBack } from 'react-icons/io';
@@ -16,69 +17,11 @@ import Reset from './Reset';
 import Add  from './Add';
 import Category from './category';
 
-
-class Todo extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-             text:'',
-             data:'',
-             modify:null,
-             removeItems:[],
-        }
-    }
-    addItem = () => {
-        let newList=[...this.props.items];
-        const item={title:this.state.text,status:'Incomplete',readonly:true, select:false}
-        newList.unshift(item);
-        this.props.myTodo(newList);
-        this.setState({
-            text:'',
-        })
-    }
-    titlechange = ( index) => {
-        console.log('save clicked', this.state.data);
-        {this.props.changeTitle(this.state.data,index)}
-        {this.props.isEdit(index)}
-        this.setState({
-            data:'',
-        })
-    }
-    reset = () => {
-        const newList= [];
-        this.props.myTodo(newList)
-    }
-    edited = (index) => {
-        console.log('edit linked', index)
-        this.props.isEdit(index)
-        this.setState({
-            // index:index,
-            modify:index,
-        })
-        console.log('index', this.state.modify)
-    }
-render() {
-    const items=this.props.items;
-    let count=0;
-    for(let i=0; i<items.length;i++){
-        if(items[i].status=== 'Complete'){
-            count=count+1;
-        }
-    }
+class Ongoing extends Component {
+    render() {
         return (
-            <div className='App'>
-                <div className='top'>
-                    <div className='divadd'>
-                        <Add index={this.state.modify} />
-                        <div className='return'><IoMdArrowRoundBack/></div>
-                        <span className='count' style={{color:'#C0C0C0'}} >{count} of {items.length} done</span>
-                    </div>
-                    <div className='category'>
-                       <Category/>
-                    </div>
-                </div>
-                <div>
-                    <table className='table'>
+            <div>
+                 <table className='table'>
                         <tbody className='tbody'>
                             {items.map((item,index)=>(
                                 <div key={index} className='rowParent'  style={{opacity:item.status==='Complete' ? 0.5: 1}}>
@@ -125,9 +68,8 @@ render() {
                             ))}
                         </tbody>
                     </table>
-                </div>
             </div>
-        )   
+        )
     }
 }
 const mapStateToProps= state =>{
@@ -148,18 +90,5 @@ const mapDispatchToProps = (dispatch) =>{
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Todo)
+export default connect(mapStateToProps,mapDispatchToProps)(Ongoing)
 
-
- // (<tr className='row'>
-                                    //     <td>
-                                    //         <input value={this.state.data} className='editText' onChange={(event)=>this.setState({data:event.target.value})} placeholder={item.title}/>
-                                    //     </td>
-                                    //     <td className='editTools'>
-                                    //         {this.state.data !== '' ? 
-                                    //            <button className='edit1' onClick={()=>this.titlechange(index)}>
-                                    //            <FontAwesomeIcon icon='save'/>
-                                    //        </button>  : null} <Cancel index={index}/>
-                                    //     </td>
-                                        
-                                    //  </tr>) :

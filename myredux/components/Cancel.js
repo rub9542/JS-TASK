@@ -5,7 +5,7 @@ import { isEdit } from '../actions';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 // import { render } from '@testing-library/react';
 
-export class Cancel extends Component {
+class Cancel extends Component {
 
    
     render(){

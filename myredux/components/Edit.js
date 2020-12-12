@@ -3,9 +3,8 @@ import {connect} from 'react-redux';
 import './todo.css'
 import {isEdit} from '../actions';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-// import { render } from '@testing-library/react';
 
-export class Edit extends Component {
+class Edit extends Component {
 
     edited=(index)=>{
         console.log('edit linked', index)

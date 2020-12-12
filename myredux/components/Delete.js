@@ -3,9 +3,8 @@ import {connect} from 'react-redux';
 import './todo.css'
 import {removeIndex } from '../actions';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-// import { render } from '@testing-library/react';
 
-export class Delete extends Component {
+class Delete extends Component {
 
     deleted=(index)=>{
         console.log('edit linked', index)

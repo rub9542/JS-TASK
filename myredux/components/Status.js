@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 import './todo.css'
 
 
-export class Status extends Component {
+
+class Status extends Component {
     render(){
         const {status}=this.props
         return (
-            <div className='status'>
-                {status}
+            <div>
+                <span style={{color:"#C0C0C0"}}>{status}</span>
             </div>
         )
     }

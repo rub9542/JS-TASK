@@ -1,5 +1,6 @@
 .App{
-    font-family: 'Montserrat', sans-serif;;
+    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Raleway', sans-serif;
 }
 .top{
     display: flex;
@@ -16,32 +17,43 @@
     /* display: flex; */
     border: 1px solid red;
     border: none;
+    /* border-radius: 68%; */
     background-color: transparent;
     font-size: 39px;
 }
+/* .addbtn:hover{
+    display: flex;
+    background-color: hotpink;
+} */
 .inputarea{
     border-radius: 22px;
     border:none;
-    font-weight:600 ;
+    /* font-weight:1,300 ; */
     align-self: center;
     /* border: 1px solid red; */
-    font-size: 25px;
+    font-size: 21px;
+    color:#2C3539;
     /* color:dimgray; */
     /* margin-top: 10px; */
+}
+.inputarea.placeholder{
+    color:#C0C0C0;
 }
 .table{
     /* border : 1px solid darkred; */
     width:100%;
 }
 .title{
-    font-weight: 0,600;
+    font-family: 'Padauk', sans-serif;
     display: flex;
     font-size: 33px;
-    overflow-wrap: ;
+    overflow-wrap:anywhere ;
     /* border:1px solid red; */
 }
 .status{
-    font-weight: 1,100;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
 }
 .buttons{
     display: flex;
@@ -52,7 +64,7 @@
 .row{
     /* border:1px solid mediumvioletred; */
     display: flex;
-    margin-top: 10px  ;
+    margin-top: 22px  ;
     
     /* border-top: 1px solid darkcyan; */
     flex: 1 1;
@@ -116,6 +128,11 @@
     border-radius: 21px;
     margin-top:4px;
 }
+.reset{
+    display: flex;
+    color: floralwhite;
+    font-size: 32px;
+}
 .editText{
     /* display: flex; */
     border-radius: 20px;
@@ -146,7 +163,10 @@
     color: floralwhite;
 }
 .add{
-    color: blueviolet;
+    color: #C0C0C0;
+}
+.add:hover{
+    color: floralwhite;
 }
 .editTools{
     display: flex;
@@ -158,6 +178,7 @@
     /* border: 1px solid red; */
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
 }
 .toprow{
@@ -193,4 +214,48 @@
 }
 .addrow{
     display: flex;
+}
+.custom-radio-btn{
+    width:13px;
+    height:13px;
+    border:2px solid hotpink;
+    border-radius: 50%;
+    margin-left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.custom-radio-btn .checkmark{
+    width: 100% ;
+    height:100% ;
+    /* border-radius: 50%; */
+    background-color: hotpink;
+    display:none;
+}
+.custom-radio-btn input{
+    display: none;
+}
+.custom-radio-btn input:checked + .checkmark{
+    display: inline-block;
+    /* background-color: hotpink; */
+}
+.count{
+    display: flex;
+    align-self:flex-end ;
+    padding-top: 4px;
+    font-family: cursive;
+}
+.return{
+    display: flex;
+    align-self: baseline;
+    margin-top: 5px;
+    font-size: 22px;
+    color: #C0C0C0;
+}
+.tasks{
+    display: flex;
+}
+.categories{
+    display: flex;
+    flex-direction: row;
 }

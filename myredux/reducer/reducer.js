@@ -4,9 +4,9 @@ import { combineReducers } from 'redux';
 
 const INITIAL_STATE ={
     items:[
-        {title:'AbdulAbdulAbdulAbdulAbdulAbdul', status:'Incomplete', readonly:true, select:false, edit:false },
-        {title:'Rub', status:'Incomplete',readonly:true,select:false, edit:false},
-        {title:'Irfan', status:'Incomplete',readonly:true,select:false, edit:false}
+        {title:'Learn Javascript', status:'Incomplete', readonly:true, select:false, edit:false },
+        {title:'Learn Python', status:'Incomplete',readonly:true,select:false, edit:false},
+        {title:'Learn Java', status:'Incomplete',readonly:true,select:false, edit:false}
     ]
 }
 
