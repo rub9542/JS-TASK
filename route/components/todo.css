@@ -1,0 +1,304 @@
+.App{
+    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Raleway', sans-serif;
+}
+.top{
+    display: flex;
+    /* border:1px solid red; */
+    position: sticky;
+    justify-content: center;
+    flex-direction: column;
+    background-color: white;
+    top:0;
+    /* background-color: darkslategrey; */
+
+}
+.addbtn{
+    /* display: flex; */
+    border: 1px solid red;
+    border: none;
+    /* border-radius: 68%; */
+    background-color: transparent;
+    font-size: 39px;
+}
+.addbtn:hover{
+    display: flex;
+    color:purple;
+    /* background-color: hotpink; */
+}
+.inputarea{
+    border-radius: 22px;
+    border:none;
+    /* font-weight:1,300 ; */
+    align-self: center;
+    /* border: 1px solid red; */
+    font-size: 21px;
+    color:#2C3539;
+    /* color:dimgray; */
+    /* margin-top: 10px; */
+}
+.inputarea.placeholder{
+    color:#C0C0C0;
+}
+.table{
+    /* border : 1px solid darkred; */
+    width:100%;
+}
+.title{
+    font-family: 'Padauk', sans-serif;
+    display: flex;
+    /* font-size: 33px; */
+    color:#C0C0C0;
+    overflow-wrap:anywhere ;
+    /* border:1px solid red; */
+}
+.title1{
+    font-family: 'Padauk', sans-serif;
+    display: flex;
+    /* font-size: 33px; */
+    /* color:#C0C0C0; */
+    overflow-wrap:anywhere ;
+    /* border:1px solid red; */
+}
+.status{
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+.buttons{
+    display: flex;
+    /* border: 1px solid blue; */
+    width: 186px;
+    justify-content: space-around;
+}
+.row{
+    /* border:1px solid mediumvioletred; */
+    display: flex;
+    margin-top: 22px  ;
+    
+    /* border-top: 1px solid darkcyan; */
+    flex: 1 1;
+    justify-content: space-between;
+    align-items: center;
+}
+.item1{
+    display: flex;
+}
+.item2{
+    display: flex;
+    /* padding: 19px 9px; */
+    flex-direction: column;
+    /* border: 1px solid goldenrod; */
+    font-size: 19px;
+}
+.sub{
+    display: flex;
+    /* border: 1px solid red; */
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around
+}
+.item3{
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+}
+.item4{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid blue; */
+    width: 123px;
+}
+.edit{
+    /* background-color: hotpink; */
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    background-color: transparent;
+    border:none;
+    border-radius: 21px;
+    margin-top:4px;
+}
+.resetbtn1{
+    display: flex;
+    align-items: center;
+}
+.resetbtn{
+    background-color: #C0C0C0;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    font-size: larger;
+    border:none;
+    border-radius: 21px;
+    margin-top:4px;
+}
+.reset{
+    display: flex;
+    color: floralwhite;
+    font-size: 32px;
+}
+.editText{
+    /* display: flex; */
+    border-radius: 20px;
+    /* margin-left: -93px; */
+    /* margin-right: 13px; */
+    border: none;
+    font-size: 21px;
+}
+.edit1{
+    background-color:cadetblue;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    /* border:dimgray; */
+    border-radius: 26px;
+    /* margin-top:4px; */
+    border: none;
+}
+.divReset{
+    display: flex;
+    justify-content: center;
+}
+.word{
+    display: flex;
+    color: #C0C0C0;
+    font-size: 25px;
+}
+.add{
+    color: #C0C0C0;
+}
+.add:hover{
+    color: red;
+}
+.editTools{
+    display: flex;
+    /* border:1px solid red; */
+    justify-content: space-evenly;
+    width: -webkit-fill-available;
+}
+.divadd{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.toprow{
+    /* border: 1px solid darkmagenta;
+    border-radius: 100px;
+    display: flex;
+    flex-direction: row; */
+}
+.deletebtndiv{
+    display: flex;
+    justify-content: center;
+}
+.deletebtn{
+    display: flex;
+    width: 40px;
+    height: 40px;
+    margin-top: 6px;
+    border-radius: 21px;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    border: none;
+    color: aliceblue;
+    background-color: hotpink;
+}
+.checkbox{
+    display: flex;
+}
+.rowParent{
+    /* background-color: red; */
+    max-width: 100%;
+    /* border: 2px solid pink; */
+}
+.addrow{
+    display: flex;
+}
+.custom-radio-btn{
+    width:13px;
+    height:13px;
+    border:2px solid hotpink;
+    border-radius: 50%;
+    margin-left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.custom-radio-btn .checkmark{
+    width: 100% ;
+    height:100% ;
+    /* border-radius: 50%; */
+    background-color: hotpink;
+    display:none;
+}
+.custom-radio-btn input{
+    display: none;
+}
+.custom-radio-btn input:checked + .checkmark{
+    display: inline-block;
+    /* background-color: hotpink; */
+}
+.count{
+    display: flex;
+    align-self:flex-end ;
+    padding-top: 4px;
+    font-family: cursive;
+}
+.return{
+    display: flex;
+    align-self: baseline;
+    margin-top: 5px;
+    font-size: 22px;
+    color: #C0C0C0;
+}
+.tasks{
+    display: flex;
+}
+.categories{
+    display: flex;
+    /* background-color: #2C3539; */
+    color:gray;
+    text-align: center;
+    text-decoration: none;
+    border-bottom: 1px solid red;
+    display: inline-block;
+    flex-direction: row;
+}
+.categories:hover {
+    flex: 1;
+    border-bottom: green; 
+    color: purple;
+    /* background-color: teal;  */
+    text-decoration: none;
+}
+.nav-links{
+    display: flex;
+    border: 1px solid pink;
+}
+.options{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.options.categories{
+    flex: 1;
+}
+/* .modal{
+    overlay:background-color
+} */
+.item{
+    display: flex;
+}
