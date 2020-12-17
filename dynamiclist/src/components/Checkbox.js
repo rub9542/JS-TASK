@@ -28,8 +28,12 @@ class Checkbox extends Component {
         const {index,status}=this.props
         console.log('index hai',index)
         return (
-            <div >
-                <label class='custom-radio-btn'>    
+            <div  >
+        
+        
+                
+
+                
                 <input className='checkbox'
                 type='checkbox'
                 defaultChecked={false}
@@ -47,8 +51,7 @@ class Checkbox extends Component {
             
                
                 
-                {/* <span className='checkmark'></span> */}
-                </label>
+                
             </div>
         )
     }

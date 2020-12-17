@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import './todo.css'
-// import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import { BiEditAlt } from 'react-icons/bi';
+// import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+// import { IoMdArrowRoundBack } from 'react-icons/io';
 import { IoSaveOutline } from 'react-icons/io5';
 // import Data from './data';
 import {connect} from 'react-redux';
@@ -21,11 +22,11 @@ import { BrowserRouter as BRouter } from 'react-router-dom';
 // import Category from './category';
 // import All from './All';
 import Completed from './completed';
-import Pending from './Pending';
+// import Pending from './Pending';
 import { Route } from "react-router-dom";
 
 
- class All extends Component {
+class Pending extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -53,15 +54,14 @@ import { Route } from "react-router-dom";
         console.log('index', this.state.modify)
     }
     render() {
-        const filtered=this.props.items;
+        const filtered= this.props.items
+        console.log('completed', filtered);
         return (
             <div>
                  <table className='table'>
                         <tbody className='tbody'>
                             {filtered.map((item,index)=>(
-                                <div key={index} className='rowParent' 
-                                //  style={{opacity:item.status==='Complete' ? 0.5: 1}}
-                                 >
+                                <div key={index} className='rowParent'  style={{opacity:item.status==='Complete' ? 0.5: 1}}>
                                     <tr className='row'>
                                         <td className='item1'>
                                             <Checkbox status={item.status} index={index}/>
@@ -75,17 +75,16 @@ import { Route } from "react-router-dom";
                                                </div>
                                             </td>
                                             :
-                                            <tr className='item2'>
-                                            <td onClick={()=>this.edited(index)} className='item'>
-                                             <Data title={item.title} status={item.status}  />
+                                            <div className='item2' >
+                                                <Data title={item.title} status={item.status} m  />
+                                             <Delete index={index}/>
+                                            </div>
+                                        //     <tr >
+                                        //     <td onClick={()=>this.edited(index)} className='item'>
                                              
-                                            </td><td>
-                                            <Delete index={index}/>
-                                            </td>
-                                            
-                                        </tr>
+                                        //     </td>                                            
+                                        // </tr>
                                         }
-                                        
                                     </tr>
                                 </div>
                             ))}
@@ -117,5 +116,5 @@ const mapDispatchToProps = (dispatch) =>{
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(All)
+export default connect(mapStateToProps,mapDispatchToProps)(Pending)
 

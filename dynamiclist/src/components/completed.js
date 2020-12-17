@@ -68,37 +68,23 @@ export class Completed extends Component {
                                         </td>
                                         {item.readonly === false?
                                             <td className='item2'>
-                                                <input value={this.state.data} autoFocus={true} className='editText' onChange={(event)=>this.setState({data:event.target.value})} placeholder={item.title}/>
-                                            </td>
-                                            :
-                                            <tr>
-                                                <td onClick={()=>this.edited(index)} className='item'>
-                                                 <Data title={item.title} status={item.status}/>
-                                                   
-                                                </td>
-                                                
-                                            </tr>
-                                        }
-                                        <td>
-                                            <div className='buttons'>
-                                                {item.readonly === false ?
-                                                    <div>
-                                                        <button className='edit1' onClick={()=>this.titlechange(index)}>
+                                               <div> <input value={this.state.data} autoFocus={true} className='editText' onChange={(event)=>this.setState({data:event.target.value})} placeholder={item.title}/>
+                                               <button className='edit1' onClick={()=>this.titlechange(index)}>
                                                             <IoSaveOutline/>
                                                         </button>
-                                                    </div>
-                                                    :
-                                                    <div style={{opacity: '0'}}>
-                                                        <button className='edit' onClick={()=>this.edited(index)}>
-                                                            <span className='word'>
-                                                                <BiEditAlt/>
-                                                            </span>
-                                                        </button>
-                                                    </div>
-                                                }
-                                                <Delete index={index}/>
-                                            </div>
-                                        </td>
+                                               </div>
+                                            </td>
+                                            :
+                                            <tr className='item2'>
+                                            <td onClick={()=>this.edited(index)} className='item'>
+                                             <Data title={item.title} status={item.status}  />
+                                             
+                                            </td><td>
+                                            <Delete index={index}/>
+                                            </td>
+                                            
+                                        </tr>
+                                        }
                                     </tr>
                                 </div>
                             ))}
