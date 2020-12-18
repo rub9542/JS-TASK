@@ -49,7 +49,6 @@ class Checkbox extends Component {
                     }
                />
             
-               
                 
                 
             </div>
